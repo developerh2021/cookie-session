@@ -34,6 +34,7 @@ module.exports = cookieSession
  * @param {boolean} [options.overwrite=true]
  * @param {string} [options.secret]
  * @param {boolean} [options.signed=true]
+ * @param {string} [options.domain]
  * @return {function} middleware
  * @public
  */
@@ -52,6 +53,7 @@ function cookieSession (options) {
   if (opts.overwrite == null) opts.overwrite = true
   if (opts.httpOnly == null) opts.httpOnly = true
   if (opts.signed == null) opts.signed = true
+  if (opts.domain == null) opts.domain = 'localhost'
 
   if (!keys && opts.signed) throw new Error('.keys required.')
 
